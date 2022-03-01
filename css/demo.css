@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    overflow: visible;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #bf91f1, #34377c);
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    color: rgba(0,0,0,0.5);
+    font-size: 2vw;
+}
