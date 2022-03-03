@@ -1,0 +1,22 @@
+{
+  "name": "scroley",
+  "version": "1.0.0",
+  "description": "A pure CSS scroller",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OhColar/scroley.git"
+  },
+  "author": "Alex Cole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OhColar/scroley/issues"
+  },
+  "homepage": "https://github.com/OhColar/scroley#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

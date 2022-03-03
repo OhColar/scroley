@@ -10,11 +10,13 @@
     <div class="container">
         <h1>Scroley Carousel</h1>
         <div class="scroley-controls">
-            <div class="scroley-prev scroley-btn">Prev</div>
-            <div class="scroley-next scroley-btn">Next</div>
+            <div class="scroley-prev scroley-btn"><label for="prev">Prev</label></div>
+            <div class="scroley-next scroley-btn"><label for="next">Prev</label></div>
         </div>
+        <input type="radio" name="controls" id="prev" />
+        <input type="radio" name="controls" id="next" />
         <div class="scroley-contain">
-            <div class="scroley">
+            <div class="scroley" data-size="5">
                 <div class="scroley-item" id="scroley-item-1">
                     1
                 </div>
