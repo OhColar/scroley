@@ -1,3 +1,4 @@
+
 .scroley-contain, .scroley-contain * {
   box-sizing: border-box;
 }
@@ -43,5 +44,5 @@
 }
 
 #next:checked + .scroley-contain .scroley-item {
-  transform: translateX(-350px);
+  transform: translateX(-351px);
 }
