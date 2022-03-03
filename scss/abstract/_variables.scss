@@ -3,21 +3,11 @@
 // This file contains all variables for use with scss files.
 // -----------------------------------------------------------------------------
 
-// Public Path
-// ==========================================================================
 
-$public-path: "/assets";
-
-// Grid
-// ==========================================================================
-
-// Columns
-$grid-columns: 14;
-$gap-width: 0.75rem;
-
-// Breakpoints
-$grid-breakpoint-mob: 568;
-$grid-breakpoint-tab: 768;
-$grid-breakpoint-desk: 1024;
-$grid-breakpoint-hd: 1408;
-$grid-breakpoint-hd-full: 1601;
+// Variables
+$numberOfSlides: 5;
+$carouselHeight: auto;
+$carouselWidth: auto;
+$itemWidth: 300px;
+$itemHeight: 300px;
+$itemMargin: 50px;

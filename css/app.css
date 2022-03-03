@@ -71,6 +71,3 @@ h1 {
 
 .scroley::-webkit-scrollbar-track {
   background: transparent; }
-
-#next:checked + .scroley-contain .scroley-item {
-  transform: translateX(-351px); }
