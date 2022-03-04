@@ -8,29 +8,41 @@
 <section>
     <div class="container">
         <h1>Scroley Carousel</h1>
-        <div class="scroley-controls">
-            <div class="scroley-prev scroley-btn"><label for="prev">Prev</label></div>
-            <div class="scroley-next scroley-btn"><label for="next">Prev</label></div>
-        </div>
-        <input type="radio" name="controls" id="prev" />
-        <input type="radio" name="controls" id="next" />
         <div class="scroley-contain">
-            <div class="scroley" data-size="5">
-                <div class="scroley-item" id="scroley-item-1">
+            <input class="scroley-btn" type="radio" name="controls" id="prev-1" checked />
+            <input class="scroley-btn" type="radio" name="controls" id="next-1" />
+            <input class="scroley-btn" type="radio" name="controls" id="prev-2" />
+            <input class="scroley-btn" type="radio" name="controls" id="next-2" />
+            <input class="scroley-btn" type="radio" name="controls" id="prev-3" />
+            <input class="scroley-btn" type="radio" name="controls" id="next-3" />
+
+            <div class="scroley-controls scroley-controls-1">
+                <label for="prev-1">Prev</label>
+                <label for="next-1">Next</label>
+            </div>
+            <div class="scroley-controls scroley-controls-2">
+                <label for="prev-2">Prev</label>
+                <label for="next-2">Next</label>
+            </div>
+            <div class="scroley-controls scroley-controls-3">
+                <label for="prev-3">Prev</label>
+                <label for="next-3">Next</label>
+            </div>
+
+            <div class="scroley">
+                <div class="scroley-item">
+
                     1
                 </div>
-                <div class="scroley-item" id="scroley-item-2">
+                <div class="scroley-item">
+
                     2
                 </div>
-                <div class="scroley-item" id="scroley-item-3">
+                <div class="scroley-item">
+
                     3
                 </div>
-                <div class="scroley-item" id="scroley-item-4">
-                    4
-                </div>
-                <div class="scroley-item" id="scroley-item-5">
-                    5
-                </div>
+
             </div>
         </div>
     </div>
