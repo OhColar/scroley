@@ -7,13 +7,14 @@
   width: 100%;
   overflow: visible;
   position: relative;
+  padding: 40px 0;
 }
 
 .scroley {
   display: flex;
   overflow: visible;
   transition: all 0.5s ease 0s;
-  padding: 40px 0;
+  margin: 40px 0;
 }
 
 .scroley-item {
@@ -37,9 +38,22 @@
   height: 30px;
 
   label {
-    font-size: 15px;
+    font-size: 28px;
     padding: 10px;
     display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 0.6;
+    color: #FFF;
+    cursor: pointer;
+
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
@@ -54,15 +68,10 @@
 .scroley::-webkit-scrollbar-track {
   background: transparent;
 }
-
-@for $i from 1 through $numberOfSlides {
-  $value: $i * 2 - 1;
-  // stuff
-}
+// 1st item previous controller
 #prev-1:checked ~ .scroley {
   transform: translateX(0px);
 }
-
 #prev-1:checked ~ .scroley-controls:not(.scroley-controls-1) {
   display: none;
 }
@@ -71,32 +80,46 @@
   transform: translateX(0px);
 }
 
-#prev-2:checked ~ .scroley-controls:not(.scroley-controls-1) {
-  display: none;
-}
-
-#prev-3:checked ~ .scroley {
-  transform: translateX(-350px);
-}
-
-#prev-3:checked ~ .scroley-controls:not(.scroley-controls-2) {
-  display: none;
-}
-
 #next-1:checked ~ .scroley {
-  transform: translateX(-350px);
+  transform: translateX(-#{$itemTotal});
 }
 
 #next-1:checked ~ .scroley-controls:not(.scroley-controls-2) {
   display: none;
 }
 
-#next-2:checked ~ .scroley {
-  transform: translateX(-700px);
-}
+// loop rest of controllers
+@for $i from 2 through $numberOfSlides {
+  // previous controller
+  $plusOne: $i + 1;
+  $lessOne: $i - 1;
+  $multiplyer: $i - 2;
+  $multiplyerPush: $i;
+  $pull: $itemTotal * $multiplyer;
+  $push: $itemTotal * $multiplyerPush;
 
-#next-2:checked ~ .scroley-controls:not(.scroley-controls-3) {
-  display: none;
+  #prev-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$pull});
+  }
+
+  #prev-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$lessOne}) {
+    display: none;
+  }
+
+  // next controllers
+  #next-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$push});
+    opacity: 1;
+  }
+
+  #next-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$plusOne}) {
+    @if $i == $numberOfSlides {
+      display: block;
+    }@else {
+      display: none;
+    }
+
+  }
 }
 
 

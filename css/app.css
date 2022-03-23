@@ -27,7 +27,8 @@ section {
 
 .container {
   width: 1000px;
-  margin: auto; }
+  margin: auto;
+  max-width: 100%; }
 
 h1 {
   color: rgba(0, 0, 0, 0.55);
@@ -39,13 +40,14 @@ h1 {
 .scroley-contain {
   width: 100%;
   overflow: visible;
-  position: relative; }
+  position: relative;
+  padding: 40px 0; }
 
 .scroley {
   display: flex;
   overflow: visible;
   transition: all 0.5s ease 0s;
-  padding: 40px 0; }
+  margin: 40px 0; }
 
 .scroley-item {
   flex-shrink: 0;
@@ -66,9 +68,19 @@ h1 {
   width: auto;
   height: 30px; }
   .scroley-controls label {
-    font-size: 15px;
+    font-size: 28px;
     padding: 10px;
-    display: inline-block; }
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 0.6;
+    color: #FFF;
+    cursor: pointer; }
+    .scroley-controls label:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
 
 .scroley::-webkit-scrollbar {
   width: 10px;
@@ -90,7 +102,23 @@ h1 {
 #prev-2:checked ~ .scroley {
   transform: translateX(0px); }
 
+#next-1:checked ~ .scroley {
+  transform: translateX(-350px); }
+
+#next-1:checked ~ .scroley-controls:not(.scroley-controls-2) {
+  display: none; }
+
+#prev-2:checked ~ .scroley {
+  transform: translateX(-0px); }
+
 #prev-2:checked ~ .scroley-controls:not(.scroley-controls-1) {
+  display: none; }
+
+#next-2:checked ~ .scroley {
+  transform: translateX(-700px);
+  opacity: 1; }
+
+#next-2:checked ~ .scroley-controls:not(.scroley-controls-3) {
   display: none; }
 
 #prev-3:checked ~ .scroley {
@@ -99,14 +127,35 @@ h1 {
 #prev-3:checked ~ .scroley-controls:not(.scroley-controls-2) {
   display: none; }
 
-#next-1:checked ~ .scroley {
-  transform: translateX(-350px); }
+#next-3:checked ~ .scroley {
+  transform: translateX(-1050px);
+  opacity: 1; }
 
-#next-1:checked ~ .scroley-controls:not(.scroley-controls-2) {
+#next-3:checked ~ .scroley-controls:not(.scroley-controls-4) {
   display: none; }
 
-#next-2:checked ~ .scroley {
+#prev-4:checked ~ .scroley {
   transform: translateX(-700px); }
 
-#next-2:checked ~ .scroley-controls:not(.scroley-controls-3) {
+#prev-4:checked ~ .scroley-controls:not(.scroley-controls-3) {
   display: none; }
+
+#next-4:checked ~ .scroley {
+  transform: translateX(-1400px);
+  opacity: 1; }
+
+#next-4:checked ~ .scroley-controls:not(.scroley-controls-5) {
+  display: none; }
+
+#prev-5:checked ~ .scroley {
+  transform: translateX(-1050px); }
+
+#prev-5:checked ~ .scroley-controls:not(.scroley-controls-4) {
+  display: none; }
+
+#next-5:checked ~ .scroley {
+  transform: translateX(-1750px);
+  opacity: 1; }
+
+#next-5:checked ~ .scroley-controls:not(.scroley-controls-6) {
+  display: block; }
