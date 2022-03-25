@@ -19,15 +19,21 @@
 
 .scroley-item {
   flex-shrink: 0;
-  width: $itemWidth;
-  height: $itemHeight;
-  margin-right: $itemMargin;
+  width: $itemWidthMob;
+  height: $itemHeightMob;
+  margin-right: $itemMarginMob;
   border-radius: 10px;
   background: #eee;
   transition: transform 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    width: $itemWidth;
+    height: $itemWidth;
+    margin-right: $itemMargin;
+  }
 }
 
 .scroley-controls {
@@ -36,6 +42,7 @@
   right: 0;
   width: auto;
   height: 30px;
+  user-select: none;
 
   label {
     font-size: 28px;
@@ -55,19 +62,22 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
   }
+
+  &:nth-of-type(#{$numberOfItems}) {
+    label:nth-last-of-type(1) {
+      background-color: rgba(110, 110, 110, 0.2);
+      pointer-events: none;
+    }
+  }
+  &:nth-of-type(1) {
+    label:nth-of-type(1) {
+      background-color: rgba(110, 110, 110, 0.2);
+      pointer-events: none;
+    }
+  }
+
 }
 
-.scroley::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.scroley::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-.scroley::-webkit-scrollbar-track {
-  background: transparent;
-}
 // 1st item previous controller
 #prev-1:checked ~ .scroley {
   transform: translateX(0px);
@@ -81,7 +91,10 @@
 }
 
 #next-1:checked ~ .scroley {
-  transform: translateX(-#{$itemTotal});
+  transform: translateX(-#{$itemTotalMob});
+  @media (min-width: 768px) {
+    transform: translateX(-#{$itemTotal});
+  }
 }
 
 #next-1:checked ~ .scroley-controls:not(.scroley-controls-2) {
@@ -89,31 +102,16 @@
 }
 
 // loop rest of controllers
-@for $i from 2 through $numberOfSlides {
-  // previous controller
+@for $i from 2 through $numberOfItems {
   $plusOne: $i + 1;
   $lessOne: $i - 1;
-  $multiplyer: $i - 2;
-  $multiplyerPush: $i;
-  $pull: $itemTotal * $multiplyer;
-  $push: $itemTotal * $multiplyerPush;
-
-  #prev-#{$i}:checked ~ .scroley {
-    transform: translateX(-#{$pull});
-  }
 
   #prev-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$lessOne}) {
     display: none;
   }
 
-  // next controllers
-  #next-#{$i}:checked ~ .scroley {
-    transform: translateX(-#{$push});
-    opacity: 1;
-  }
-
   #next-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$plusOne}) {
-    @if $i == $numberOfSlides {
+    @if $i == $numberOfItems {
       display: block;
     }@else {
       display: none;
@@ -122,8 +120,48 @@
   }
 }
 
+@for $i from 2 through $numberOfItems {
+  $multiplyer: $i - 2;
+  $multiplyerPush: $i;
+  $pull: $itemTotal * $multiplyer;
+  $push: $itemTotal * $multiplyerPush;
+  $pullMob: $itemTotalMob * $multiplyer;
+  $pushMob: $itemTotalMob * $multiplyerPush;
+  
+  #prev-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$pullMob});
+    @media (min-width: 768px) {
+      transform: translateX(-#{$pull});
+    }
+  }
 
-// every slide has a before and after which is the prev and next buttons
-// only checked before and after is visible
-// inputs for each item
-// scroll snap
+  // next controllers
+  #next-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$pushMob});
+    @media (min-width: 768px) {
+      transform: translateX(-#{$push});
+    }
+  }
+
+}
+
+// Scroley Mob overrides
+.scroley-mob {
+
+  @media (min-width: 1024px) {
+
+    .scroley {
+      transform: translateX(0) !important;
+    }
+
+    .scroley-btn, .scroley-controls {
+      display: none;
+    }
+
+    .scroley-item {
+      flex-shrink: unset;
+    }
+
+  }
+
+}

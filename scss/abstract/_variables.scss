@@ -5,11 +5,16 @@
 
 
 // Variables
-$numberOfSlides: 5;
+$numberOfItems: 5;
 $carouselHeight: auto;
 $carouselWidth: auto;
-$itemWidth: 300px;
+$itemWidth: 460px;
 $itemHeight: 300px;
-$itemMargin: 50px;
+$itemMargin: 24px;
 $itemTotal: $itemWidth + $itemMargin;
-//$offset: 200px;
+
+// Mobile sizes
+$itemWidthMob: 260px;
+$itemHeightMob: 300px;
+$itemMarginMob: 24px;
+$itemTotalMob: $itemWidthMob + $itemMarginMob;
