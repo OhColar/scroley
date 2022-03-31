@@ -12,7 +12,7 @@
 
 .scroley {
   display: flex;
-  overflow: scroll;
+  overflow: visible;
   scroll-snap-type: x mandatory;
   transition: all 0.5s ease 0s;
   margin: 40px 0;
@@ -49,10 +49,6 @@
   width: auto;
   height: 30px;
   user-select: none;
-  display: none;
-  @media (min-width: 1024px) {
-    display: block;
-  }
 
   label {
     font-size: 28px;
@@ -101,8 +97,8 @@
 }
 
 #next-1:checked ~ .scroley {
-  transform: translateX(0);
-  @media (min-width: 1024px) {
+  transform: translateX(-#{$itemTotalMob});
+  @media (min-width: 768px) {
     transform: translateX(-#{$itemTotal});
   }
 }
@@ -139,17 +135,29 @@
   $pushMob: $itemTotalMob * $multiplyerPush;
   
   #prev-#{$i}:checked ~ .scroley {
-    transform: translateX(0);
-    @media (min-width: 1024px) {
+    transform: translateX(-#{$pullMob});
+    @media (min-width: 768px) {
       transform: translateX(-#{$pull});
     }
   }
 
   // next controllers
   #next-#{$i}:checked ~ .scroley {
-    transform: translateX(0);
-    @media (min-width: 1024px) {
+    transform: translateX(-#{$pushMob});
+    @media (min-width: 768px) {
       transform: translateX(-#{$push});
+    }
+  }
+
+
+  .scroley-swipe {
+    @media screen and (max-width: 1023px) {
+      #prev-#{$i}:checked ~ .scroley {
+        transform: translateX(0);
+      }
+      #next-#{$i}:checked ~ .scroley {
+        transform: translateX(0);
+      }
     }
   }
 
@@ -173,5 +181,26 @@
     }
 
   }
+
+}
+
+.scroley-swipe {
+
+  @media screen and (max-width: 1023px) {
+    .scroley {
+      overflow: scroll;
+    }
+
+    .scroley-controls {
+      display: none;
+    }
+
+    #next-1:checked ~ .scroley {
+      transform: translateX(0);
+    }
+
+  }
+
+
 
 }

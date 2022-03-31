@@ -47,7 +47,7 @@ h1 {
 
 .scroley {
   display: flex;
-  overflow: scroll;
+  overflow: visible;
   scroll-snap-type: x mandatory;
   transition: all 0.5s ease 0s;
   margin: 40px 0; }
@@ -79,11 +79,7 @@ h1 {
   right: 0;
   width: auto;
   height: 30px;
-  user-select: none;
-  display: none; }
-  @media (min-width: 1024px) {
-    .scroley-controls {
-      display: block; } }
+  user-select: none; }
   .scroley-controls label {
     font-size: 28px;
     padding: 10px;
@@ -115,8 +111,8 @@ h1 {
   transform: translateX(0px); }
 
 #next-1:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-284px); }
+  @media (min-width: 768px) {
     #next-1:checked ~ .scroley {
       transform: translateX(-484px); } }
 
@@ -148,52 +144,76 @@ h1 {
   display: block; }
 
 #prev-2:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-0px); }
+  @media (min-width: 768px) {
     #prev-2:checked ~ .scroley {
       transform: translateX(-0px); } }
 
 #next-2:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-568px); }
+  @media (min-width: 768px) {
     #next-2:checked ~ .scroley {
       transform: translateX(-968px); } }
 
+@media screen and (max-width: 1023px) {
+  .scroley-swipe #prev-2:checked ~ .scroley {
+    transform: translateX(0); }
+  .scroley-swipe #next-2:checked ~ .scroley {
+    transform: translateX(0); } }
+
 #prev-3:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-284px); }
+  @media (min-width: 768px) {
     #prev-3:checked ~ .scroley {
       transform: translateX(-484px); } }
 
 #next-3:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-852px); }
+  @media (min-width: 768px) {
     #next-3:checked ~ .scroley {
       transform: translateX(-1452px); } }
 
+@media screen and (max-width: 1023px) {
+  .scroley-swipe #prev-3:checked ~ .scroley {
+    transform: translateX(0); }
+  .scroley-swipe #next-3:checked ~ .scroley {
+    transform: translateX(0); } }
+
 #prev-4:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-568px); }
+  @media (min-width: 768px) {
     #prev-4:checked ~ .scroley {
       transform: translateX(-968px); } }
 
 #next-4:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-1136px); }
+  @media (min-width: 768px) {
     #next-4:checked ~ .scroley {
       transform: translateX(-1936px); } }
 
+@media screen and (max-width: 1023px) {
+  .scroley-swipe #prev-4:checked ~ .scroley {
+    transform: translateX(0); }
+  .scroley-swipe #next-4:checked ~ .scroley {
+    transform: translateX(0); } }
+
 #prev-5:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-852px); }
+  @media (min-width: 768px) {
     #prev-5:checked ~ .scroley {
       transform: translateX(-1452px); } }
 
 #next-5:checked ~ .scroley {
-  transform: translateX(0); }
-  @media (min-width: 1024px) {
+  transform: translateX(-1420px); }
+  @media (min-width: 768px) {
     #next-5:checked ~ .scroley {
       transform: translateX(-2420px); } }
+
+@media screen and (max-width: 1023px) {
+  .scroley-swipe #prev-5:checked ~ .scroley {
+    transform: translateX(0); }
+  .scroley-swipe #next-5:checked ~ .scroley {
+    transform: translateX(0); } }
 
 @media (min-width: 1024px) {
   .scroley-mob .scroley {
@@ -202,3 +222,11 @@ h1 {
     display: none; }
   .scroley-mob .scroley-item {
     flex-shrink: unset; } }
+
+@media screen and (max-width: 1023px) {
+  .scroley-swipe .scroley {
+    overflow: scroll; }
+  .scroley-swipe .scroley-controls {
+    display: none; }
+  .scroley-swipe #next-1:checked ~ .scroley {
+    transform: translateX(0); } }
