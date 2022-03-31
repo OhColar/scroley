@@ -1,0 +1,206 @@
+
+.scroley-contain, .scroley-contain * {
+  box-sizing: border-box;
+}
+
+.scroley-contain {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  padding: 40px 0;
+}
+
+.scroley {
+  display: flex;
+  overflow: visible;
+  scroll-snap-type: x mandatory;
+  transition: all 0.5s ease 0s;
+  margin: 40px 0;
+
+  @media (min-width: 1024px) {
+    overflow: visible;
+  }
+}
+
+.scroley-item {
+  flex-shrink: 0;
+  width: $itemWidthMob;
+  height: $itemHeightMob;
+  margin-right: $itemMarginMob;
+  border-radius: 10px;
+  background: #eee;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+
+  @media (min-width: 768px) {
+    width: $itemWidth;
+    height: $itemWidth;
+    margin-right: $itemMargin;
+  }
+}
+
+.scroley-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 30px;
+  user-select: none;
+
+  label {
+    font-size: 28px;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 0.6;
+    color: #FFF;
+    cursor: pointer;
+
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &:nth-of-type(#{$numberOfItems}) {
+    label:nth-last-of-type(1) {
+      background-color: rgba(110, 110, 110, 0.2);
+      pointer-events: none;
+    }
+  }
+  &:nth-of-type(1) {
+    label:nth-of-type(1) {
+      background-color: rgba(110, 110, 110, 0.2);
+      pointer-events: none;
+    }
+  }
+
+}
+
+// 1st item previous controller
+#prev-1:checked ~ .scroley {
+  transform: translateX(0px);
+}
+#prev-1:checked ~ .scroley-controls:not(.scroley-controls-1) {
+  display: none;
+}
+
+#prev-2:checked ~ .scroley {
+  transform: translateX(0px);
+}
+
+#next-1:checked ~ .scroley {
+  transform: translateX(-#{$itemTotalMob});
+  @media (min-width: 768px) {
+    transform: translateX(-#{$itemTotal});
+  }
+}
+
+#next-1:checked ~ .scroley-controls:not(.scroley-controls-2) {
+  display: none;
+}
+
+// loop rest of controllers
+@for $i from 2 through $numberOfItems {
+  $plusOne: $i + 1;
+  $lessOne: $i - 1;
+
+  #prev-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$lessOne}) {
+    display: none;
+  }
+
+  #next-#{$i}:checked ~ .scroley-controls:not(.scroley-controls-#{$plusOne}) {
+    @if $i == $numberOfItems {
+      display: block;
+    }@else {
+      display: none;
+    }
+
+  }
+}
+
+@for $i from 2 through $numberOfItems {
+  $multiplyer: $i - 2;
+  $multiplyerPush: $i;
+  $pull: $itemTotal * $multiplyer;
+  $push: $itemTotal * $multiplyerPush;
+  $pullMob: $itemTotalMob * $multiplyer;
+  $pushMob: $itemTotalMob * $multiplyerPush;
+  
+  #prev-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$pullMob});
+    @media (min-width: 768px) {
+      transform: translateX(-#{$pull});
+    }
+  }
+
+  // next controllers
+  #next-#{$i}:checked ~ .scroley {
+    transform: translateX(-#{$pushMob});
+    @media (min-width: 768px) {
+      transform: translateX(-#{$push});
+    }
+  }
+
+
+  .scroley-swipe {
+    @media screen and (max-width: 1023px) {
+      #prev-#{$i}:checked ~ .scroley {
+        transform: translateX(0);
+      }
+      #next-#{$i}:checked ~ .scroley {
+        transform: translateX(0);
+      }
+    }
+  }
+
+}
+
+// Scroley Mob overrides
+.scroley-mob {
+
+  @media (min-width: 1024px) {
+
+    .scroley {
+      transform: translateX(0) !important;
+    }
+
+    .scroley-btn, .scroley-controls {
+      display: none;
+    }
+
+    .scroley-item {
+      flex-shrink: unset;
+    }
+
+  }
+
+}
+
+.scroley-swipe {
+
+  @media screen and (max-width: 1023px) {
+    .scroley {
+      overflow: scroll;
+    }
+
+    .scroley-controls {
+      display: none;
+    }
+
+    #next-1:checked ~ .scroley {
+      transform: translateX(0);
+    }
+
+  }
+
+
+
+}
