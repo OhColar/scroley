@@ -12,9 +12,14 @@
 
 .scroley {
   display: flex;
-  overflow: visible;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
   transition: all 0.5s ease 0s;
   margin: 40px 0;
+
+  @media (min-width: 1024px) {
+    overflow: visible;
+  }
 }
 
 .scroley-item {
@@ -28,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
 
   @media (min-width: 768px) {
     width: $itemWidth;
@@ -43,6 +49,10 @@
   width: auto;
   height: 30px;
   user-select: none;
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+  }
 
   label {
     font-size: 28px;
@@ -91,8 +101,8 @@
 }
 
 #next-1:checked ~ .scroley {
-  transform: translateX(-#{$itemTotalMob});
-  @media (min-width: 768px) {
+  transform: translateX(0);
+  @media (min-width: 1024px) {
     transform: translateX(-#{$itemTotal});
   }
 }
@@ -129,16 +139,16 @@
   $pushMob: $itemTotalMob * $multiplyerPush;
   
   #prev-#{$i}:checked ~ .scroley {
-    transform: translateX(-#{$pullMob});
-    @media (min-width: 768px) {
+    transform: translateX(0);
+    @media (min-width: 1024px) {
       transform: translateX(-#{$pull});
     }
   }
 
   // next controllers
   #next-#{$i}:checked ~ .scroley {
-    transform: translateX(-#{$pushMob});
-    @media (min-width: 768px) {
+    transform: translateX(0);
+    @media (min-width: 1024px) {
       transform: translateX(-#{$push});
     }
   }
