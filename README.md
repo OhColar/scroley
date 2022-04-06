@@ -67,15 +67,15 @@ Simply add the class `.scroley-swipe` to the `.scroley-container` and your scrol
 <!-- Scroley container -->
 <div class="scroley-contain">
 
-    <!-- Input pairs - one per item -->
+    <!-- Item #1 - input pairs -->
     <input class="scroley-btn" hidden type="radio" name="controls" id="prev-1" checked />
     <input class="scroley-btn" hidden  type="radio" name="controls" id="next-1" />
 
-    <!-- Input pairs - one per item -->
+    <!-- Item #2 - input pairs -->
     <input class="scroley-btn" hidden  type="radio" name="controls" id="prev-2" />
     <input class="scroley-btn" hidden  type="radio" name="controls" id="next-2" />
 
-    <!-- Input pairs - one per item -->
+    <!-- Item #3 - input pairs -->
     <input class="scroley-btn" hidden  type="radio" name="controls" id="prev-3" />
     <input class="scroley-btn" hidden  type="radio" name="controls" id="next-3" />
 
