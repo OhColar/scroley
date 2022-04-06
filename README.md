@@ -1,4 +1,4 @@
-# scroley
+# Scroley
 A lightweight dependency free scrolling carousel
 
 ## What is Scroley?
