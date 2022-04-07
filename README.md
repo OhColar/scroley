@@ -1,5 +1,7 @@
 # Scroley
-A lightweight dependency free scrolling carousel
+A lightweight dependency free scrolling carousel. 
+
+**DEMO:** https://ohcolar.github.io/scroley/
 
 ## What is Scroley?
 Scroley is a pure CSS scroller used to display any number of cards in a row with the option to enable horizontal scroll controls on either desktop or mobile... or both! Using checkbox interaction Scroley lets your users click through previous and next items within the row.
