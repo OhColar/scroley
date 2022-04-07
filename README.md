@@ -9,6 +9,26 @@ All HTML elements are wrapped within the `.scroley-contain` class and are requir
 ## HTML Layout
 There are three areas we need to explain **input pairs**, **controls**, and **scroley items**. In short, the **controls** check the **inputs** and the **inputs** determine what **item** is scrolled to.
 
+## SASS variables
+Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
+
+```
+// Variables
+$numberOfItems: 5;
+$carouselHeight: auto;
+$carouselWidth: auto;
+$itemWidth: 460px;
+$itemHeight: 300px;
+$itemMargin: 24px;
+$itemTotal: $itemWidth + $itemMargin;
+
+// Mobile sizes
+$itemWidthMob: 260px;
+$itemHeightMob: 300px;
+$itemMarginMob: 24px;
+$itemTotalMob: $itemWidthMob + $itemMarginMob;
+```
+
 ### Inputs
 The inputs all should have the `hidden` attribute on them as we don't want the user seeing these. Each input pair relates to a scroll item, one for previous and one for next interactions, example below:
 
@@ -105,24 +125,4 @@ Simply add the class `.scroley-swipe` to the `.scroley-container` and your scrol
         <div class="scroley-item">3</div>
     </div>
 </div>
-```
-
-## SASS variables
-Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
-
-```
-// Variables
-$numberOfItems: 5;
-$carouselHeight: auto;
-$carouselWidth: auto;
-$itemWidth: 460px;
-$itemHeight: 300px;
-$itemMargin: 24px;
-$itemTotal: $itemWidth + $itemMargin;
-
-// Mobile sizes
-$itemWidthMob: 260px;
-$itemHeightMob: 300px;
-$itemMarginMob: 24px;
-$itemTotalMob: $itemWidthMob + $itemMarginMob;
 ```
