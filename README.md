@@ -6,9 +6,6 @@ Scroley is a pure CSS scroller used to display any number of cards in a row with
 
 All HTML elements are wrapped within the `.scroley-contain` class and are required to be setup using the structure and DOM order as explained below.
 
-## HTML Layout
-There are three areas we need to explain **input pairs**, **controls**, and **scroley items**. In short, the **controls** check the **inputs** and the **inputs** determine what **item** is scrolled to.
-
 ## SASS variables
 Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
 
@@ -28,6 +25,10 @@ $itemHeightMob: 300px;
 $itemMarginMob: 24px;
 $itemTotalMob: $itemWidthMob + $itemMarginMob;
 ```
+
+## HTML Layout
+There are three areas we need to explain **input pairs**, **controls**, and **scroley items**. In short, the **controls** check the **inputs** and the **inputs** determine what **item** is scrolled to.
+
 
 ### Inputs
 The inputs all should have the `hidden` attribute on them as we don't want the user seeing these. Each input pair relates to a scroll item, one for previous and one for next interactions, example below:
