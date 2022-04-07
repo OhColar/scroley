@@ -12,6 +12,17 @@ body {
   font-family: 'Ropa Sans', sans-serif;
 }
 
+header {
+  position: fixed;
+  flex: none;
+  background-color: #FFF;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  box-shadow: 0 0 10px 0px rgba(0,0,0,0.2);
+}
+
 section {
   overflow: hidden;
   width: 100vw;
@@ -23,8 +34,22 @@ section {
   max-width: 100%;
 }
 
+header .container {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
 h1 {
-  color: rgba(0,0,0,0.55);
-  font-size: 3rem;
-  font-weight: 400;
+  color: #000c;
+  font-size: 2rem;
+  font-weight: 300;
+  display: inline-block;
+  margin: 0 0 0 26px;
+}
+
+p {
+  font-size: 1rem;
+  color: #00000078;
+  margin: 7px 0 0 16px;
 }

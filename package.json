@@ -17,9 +17,6 @@
     "url": "https://github.com/OhColar/scroley/issues"
   },
   "homepage": "https://github.com/OhColar/scroley#readme",
-  "dependencies": {
-    "node-sass": "^7.0.1"
-  },
   "devDependencies": {
     "http-server": "^14.1.0"
   }
