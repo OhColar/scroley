@@ -12,8 +12,6 @@ Scroley uses sass variables to configure the layout. These variables also have c
 ```scss
 // Variables
 $numberOfItems: 5;
-$carouselHeight: auto;
-$carouselWidth: auto;
 $itemWidth: 460px;
 $itemHeight: 300px;
 $itemMargin: 24px;
