@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// _variables.scss
+// This file contains all variables for use with scss files.
+// -----------------------------------------------------------------------------
+
+
+// Variables
+$numberOfItems: 5 !default;
+$itemWidth: 460px !default;
+$itemHeight: 300px !default;
+$itemMargin: 24px !default;
+$itemTotal: $itemWidth + $itemMargin !default;
+
+// Mobile sizes
+$itemWidthMob: 260px !default;
+$itemHeightMob: 300px !default;
+$itemMarginMob: 24px !default;
+$itemTotalMob: $itemWidthMob + $itemMarginMob !default;
