@@ -33,7 +33,7 @@ There are three areas we need to explain **input pairs**, **controls**, and **sc
 ### Inputs
 The inputs all should have the `hidden` attribute on them as we don't want the user seeing these. Each input pair relates to a scroll item, one for previous and one for next interactions, example below:
 
-```
+```html
 <!-- Item #1 - input pairs -->
 <input class="scroley-btn" hidden disabled type="radio" name="controls" id="prev-1" checked />
 <input class="scroley-btn" hidden  type="radio" name="controls" id="next-1" />
@@ -48,7 +48,7 @@ The first input needs the attribute `checked` to tell the scroller to start here
 ### Controls
 In a similar method to the input pairs your controls will need to be created on set per scroll item. The `.scroley-controls` container holds two `labels` both with a `for` attribute that links up with the input pairs from the step above. An example can be seen here:
 
-```
+```html
 <!-- Item #1 - controls -->
 <div class="scroley-controls scroley-controls-1">
     <label for="prev-1">&lsaquo;</label>
@@ -65,7 +65,7 @@ In a similar method to the input pairs your controls will need to be created on 
 ### The scroller and items
 Below is the mark up to display your scroller and items. You can put any HTML inside a `.scroley-item` as the content will be bound to the Scroley variables defined as CSS. I'll explain the configuration later on.
 
-```
+```html
 <div class="scroley">
     <div class="scroley-item">1</div>
     <div class="scroley-item">2</div>
@@ -84,7 +84,7 @@ Simply add the class `.scroley-swipe` to the `.scroley-container` and your scrol
 
 
 ## HTML example
-```
+```html
 <!-- Scroley container -->
 <div class="scroley-contain">
 
