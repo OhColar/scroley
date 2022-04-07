@@ -9,7 +9,7 @@ All HTML elements are wrapped within the `.scroley-contain` class and are requir
 ## SASS variables
 Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
 
-```
+```scss
 // Variables
 $numberOfItems: 5;
 $carouselHeight: auto;
