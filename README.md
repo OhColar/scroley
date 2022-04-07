@@ -6,13 +6,32 @@ Scroley is a pure CSS scroller used to display any number of cards in a row with
 
 All HTML elements are wrapped within the `.scroley-contain` class and are required to be setup using the structure and DOM order as explained below.
 
+## SASS variables
+Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
+
+```scss
+// Variables
+$numberOfItems: 5;
+$itemWidth: 460px;
+$itemHeight: 300px;
+$itemMargin: 24px;
+$itemTotal: $itemWidth + $itemMargin;
+
+// Mobile sizes
+$itemWidthMob: 260px;
+$itemHeightMob: 300px;
+$itemMarginMob: 24px;
+$itemTotalMob: $itemWidthMob + $itemMarginMob;
+```
+
 ## HTML Layout
 There are three areas we need to explain **input pairs**, **controls**, and **scroley items**. In short, the **controls** check the **inputs** and the **inputs** determine what **item** is scrolled to.
+
 
 ### Inputs
 The inputs all should have the `hidden` attribute on them as we don't want the user seeing these. Each input pair relates to a scroll item, one for previous and one for next interactions, example below:
 
-```
+```html
 <!-- Item #1 - input pairs -->
 <input class="scroley-btn" hidden disabled type="radio" name="controls" id="prev-1" checked />
 <input class="scroley-btn" hidden  type="radio" name="controls" id="next-1" />
@@ -27,7 +46,7 @@ The first input needs the attribute `checked` to tell the scroller to start here
 ### Controls
 In a similar method to the input pairs your controls will need to be created on set per scroll item. The `.scroley-controls` container holds two `labels` both with a `for` attribute that links up with the input pairs from the step above. An example can be seen here:
 
-```
+```html
 <!-- Item #1 - controls -->
 <div class="scroley-controls scroley-controls-1">
     <label for="prev-1">&lsaquo;</label>
@@ -44,7 +63,7 @@ In a similar method to the input pairs your controls will need to be created on 
 ### The scroller and items
 Below is the mark up to display your scroller and items. You can put any HTML inside a `.scroley-item` as the content will be bound to the Scroley variables defined as CSS. I'll explain the configuration later on.
 
-```
+```html
 <div class="scroley">
     <div class="scroley-item">1</div>
     <div class="scroley-item">2</div>
@@ -63,7 +82,7 @@ Simply add the class `.scroley-swipe` to the `.scroley-container` and your scrol
 
 
 ## HTML example
-```
+```html
 <!-- Scroley container -->
 <div class="scroley-contain">
 
@@ -105,24 +124,4 @@ Simply add the class `.scroley-swipe` to the `.scroley-container` and your scrol
         <div class="scroley-item">3</div>
     </div>
 </div>
-```
-
-## SASS variables
-Scroley uses sass variables to configure the layout. These variables also have custom mobile sizes for you to fine tune the mobile experience.  You need to set the **number of items** at the top as this configures your sass loops.
-
-```
-// Variables
-$numberOfItems: 5;
-$carouselHeight: auto;
-$carouselWidth: auto;
-$itemWidth: 460px;
-$itemHeight: 300px;
-$itemMargin: 24px;
-$itemTotal: $itemWidth + $itemMargin;
-
-// Mobile sizes
-$itemWidthMob: 260px;
-$itemHeightMob: 300px;
-$itemMarginMob: 24px;
-$itemTotalMob: $itemWidthMob + $itemMarginMob;
 ```
